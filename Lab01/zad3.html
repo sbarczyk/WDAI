@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zad3</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .container {
+            width: 360px;
+            height: 240px;
+            position: relative;
+        }
+
+        .square {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+
+        #red {
+            background-color: red;
+            top: 0;
+            left: 60px;
+        }
+
+        #blue {
+            background-color: blue;
+            top: 0;
+            left: 180px;
+        }
+
+        #green {
+            background-color: green;
+            top: 120px;
+            left: 0;
+        }
+
+        #image {
+            background-image: url('joker.png');
+            background-size: cover;
+            top: 120px;
+            left: 120px;
+        }
+
+        #yellow {
+            background-color: yellow;
+            top: 120px;
+            left: 240px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="red" class="square"></div>
+        <div id="blue" class="square"></div>
+        <div id="green" class="square"></div>
+        <div id="image" class="square"></div>
+        <div id="yellow" class="square"></div>
+    </div>
+
+</body>
+</html>
