@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria</title>
+    <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="header.css">
+</head>
+<body>
+
+    <!-- Nagłówek (opcjonalnie, jeśli masz osobny plik z nagłówkiem, użyj include) -->
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="gallery-content">
+        <!-- Osadzony film z YouTube -->
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Ba5C3kL2KUc" 
+                    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+                    encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <!-- Nagłówek pod filmem -->
+        <h1 class="gallery-heading">Zobacz co myślą inni!</h1>
+
+        <!-- Rządek zdjęć z linkami otwierającymi się w nowej karcie -->
+        <div class="thumbnail-row">
+            <a href="image1.jpg" target="_blank"><img src="thumb1.jpg" alt="Miniatura 1"></a>
+            <a href="image2.jpg" target="_blank"><img src="thumb2.jpg" alt="Miniatura 2"></a>
+            <a href="image3.jpg" target="_blank"><img src="thumb3.jpg" alt="Miniatura 3"></a>
+            <a href="image4.jpg" target="_blank"><img src="thumb4.jpg" alt="Miniatura 4"></a>
+            <a href="image5.jpg" target="_blank"><img src="thumb5.jpg" alt="Miniatura 5"></a>
+        </div>
+    </main>
+
+    <!-- Stopka (opcjonalnie, jeśli masz osobny plik ze stopką, użyj include) -->
+    <footer>
+        <p>Szymon Barczyk</p>
+    </footer>
+
+</body>
+</html>

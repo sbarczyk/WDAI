@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+  }
+  
+  canvas {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('board-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: none; 
+  }
+  
+  .menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+  
+  .menu h1 {
+    color: white;
+    font-size: 48px;
+    margin-bottom: 30px;
+  }
+  
+  .menu p {
+    color: white;
+    font-size: 24px;
+    margin: 10px;
+  }
+  
+  .menu-button {
+    width: 200px;
+    height: 50px;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .menu-button.easy {
+    background-color: green;
+  }
+  
+  .menu-button.medium {
+    background-color: yellow;
+    color: black;
+  }
+  
+  .menu-button.hard {
+    background-color: red;
+  }
+  
+  .menu-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  
+  #scoreboard {
+    position: absolute;
+    top: 10px;
+    display: flex;
+    width: calc(100% - 40px);
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 5;
+  }
+  
+  #lives {
+    display: flex;
+    gap: 10px;
+  }
+  
+  #score {
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+    text-align: right;
+  }
+  
+  #crosshair {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-image: url('aim.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 15;
+  }
