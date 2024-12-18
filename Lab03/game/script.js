@@ -11,20 +11,23 @@ const finalScore = document.getElementById("finalScore");
 const bestScoreText = document.getElementById("bestScore");
 const playAgainButton = document.getElementById("playAgainButton");
 
+// Elementy gry
 let score = 0;
 let bestScore = 0;
 let lives = 3;
 let zombies = [];
 let gameRunning = false;
 let difficulty = null;
-let spawnInterval = 2500;
+let spawnInterval = 2000;
 
-const crosshairElement = document.getElementById("crosshair");
+let crosshairImage = new Image();
+crosshairImage.src = "aim.png";
 
-const zombieFrames = [];
+let zombieFrames = [];
 const zombieImage = new Image();
 zombieImage.src = "walkingdead.png";
 
+// Tworzenie animacji zombie
 for (let i = 0; i < 10; i++) {
   zombieFrames.push({
     x: i * 200,
@@ -34,42 +37,31 @@ for (let i = 0; i < 10; i++) {
   });
 }
 
+// Zdarzenia myszy
 canvas.addEventListener("mousemove", (e) => {
-  crosshairElement.style.left = `${e.clientX}px`;
-  crosshairElement.style.top = `${e.clientY}px`;
+  crosshair.x = e.clientX;
+  crosshair.y = e.clientY;
 });
 
 canvas.addEventListener("click", (e) => {
   if (!gameRunning) return;
 
-  const rect = canvas.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
-
-  let hit = false;
-
   zombies.forEach((zombie, index) => {
     const isHit =
-      x >= zombie.x &&
-      x <= zombie.x + zombie.size &&
-      y >= zombie.y &&
-      y <= zombie.y + zombie.size;
+      crosshair.x >= zombie.x &&
+      crosshair.x <= zombie.x + zombie.size &&
+      crosshair.y >= zombie.y &&
+      crosshair.y <= zombie.y + zombie.size;
 
     if (isHit) {
       zombies.splice(index, 1);
       score += 20;
-      hit = true;
       updateScore();
     }
   });
-
-  // Jeśli nie trafiłeś w zombiaka, odejmij punkty
-  if (!hit) {
-    score = Math.max(0, score - 5); // Punkty nie mogą być ujemne
-    updateScore();
-  }
 });
 
+// Obsługa menu początkowego
 document.getElementById("easyButton").addEventListener("click", () => {
   difficulty = "Easy";
   spawnInterval = 2500;
@@ -88,9 +80,19 @@ document.getElementById("hardButton").addEventListener("click", () => {
   startGame();
 });
 
+// Celownik
+const crosshair = {
+  x: canvas.width / 2,
+  y: canvas.height / 2,
+  draw() {
+    const size = 80;
+    ctx.drawImage(crosshairImage, this.x - size / 2, this.y - size / 2, size, size);
+  },
+};
+
+// Funkcja rozpoczęcia gry
 function startGame() {
   difficultyMenu.style.display = "none";
-  endMenu.style.display = "none";
   gameRunning = true;
   updateLives();
   updateScore();
@@ -98,6 +100,7 @@ function startGame() {
   gameLoop();
 }
 
+// Generowanie zombie
 function spawnZombie() {
   if (!gameRunning) return;
 
@@ -114,10 +117,12 @@ function spawnZombie() {
   });
 }
 
+// Aktualizacja wyniku
 function updateScore() {
   document.getElementById("score").textContent = String(score).padStart(5, "0");
 }
 
+// Aktualizacja życia
 function updateLives() {
   const livesContainer = document.getElementById("lives");
   livesContainer.innerHTML = "";
@@ -130,6 +135,7 @@ function updateLives() {
   }
 }
 
+// Funkcja końca gry
 function endGame() {
   gameRunning = false;
 
@@ -141,15 +147,16 @@ function endGame() {
   bestScoreText.textContent = `Best Score: ${bestScore}`;
   endMenu.style.display = "flex";
 
-  // Odtwórz smutną muzykę
   gameOverSound.play();
 }
 
+// Obsługa przycisku "Play Again"
 playAgainButton.addEventListener("click", () => {
   endMenu.style.display = "none";
   resetGame();
 });
 
+// Resetowanie gry
 function resetGame() {
   score = 0;
   lives = 3;
@@ -161,6 +168,7 @@ function resetGame() {
   difficultyMenu.style.display = "flex";
 }
 
+// Animacja gry
 function gameLoop() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -199,7 +207,12 @@ function gameLoop() {
     );
   });
 
+  crosshair.draw();
+
   if (gameRunning) {
     requestAnimationFrame(gameLoop);
   }
 }
+
+// Wyświetl menu początkowe na starcie
+difficultyMenu.style.display = "flex";

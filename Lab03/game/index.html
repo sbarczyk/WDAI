@@ -1,43 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zombie Shooter</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <!-- Menu początkowe -->
-    <div id="difficultyMenu" class="menu">
-      <h1>Select Difficulty</h1>
-      <button id="easyButton" class="menu-button easy">Easy</button>
-      <button id="mediumButton" class="menu-button medium">Medium</button>
-      <button id="hardButton" class="menu-button hard">Hard</button>
-    </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zombie Shooter</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Menu początkowe -->
+  <div id="difficultyMenu" class="menu">
+    <h1>Select Difficulty</h1>
+    <button id="easyButton" class="menu-button easy">Easy</button>
+    <button id="mediumButton" class="menu-button medium">Medium</button>
+    <button id="hardButton" class="menu-button hard">Hard</button>
+  </div>
 
-    <!-- Canvas do gry -->
-    <canvas id="gameCanvas"></canvas>
+  <!-- Canvas do gry -->
+  <canvas id="gameCanvas"></canvas>
 
-    <!-- Celownik -->
-    <div id="crosshair"></div>
+  <!-- Menu końcowe -->
+  <div id="endMenu" class="menu" style="display: none;">
+    <h1>Game Over</h1>
+    <p id="finalScore"></p>
+    <p id="bestScore"></p>
+    <button id="playAgainButton" class="menu-button">Play Again</button>
+  </div>
 
-    <!-- Menu końcowe -->
-    <div id="endMenu" class="menu" style="display: none">
-      <h1>Game Over</h1>
-      <p id="finalScore"></p>
-      <p id="bestScore"></p>
-      <button id="playAgainButton" class="menu-button">Play Again</button>
-      <audio id="gameOverSound" src="sad-music.mp3"></audio>
-    </div>
-
-    <audio id="gameOverSound" src="sad-music.mp3"></audio>
-
-    <!-- Wynik i życia -->
-    <div id="scoreboard">
-      <div id="lives"></div>
-      <div id="score">00000</div>
-    </div>
-
-    <script src="script.js"></script>
-  </body>
+  <audio id="gameOverSound" src="sad-music.mp3"></audio>
+  <div id="scoreboard">
+    <div id="lives"></div>
+    <div id="score">00000</div>
+  </div>
+  <script src="script.js"></script>
+</body>
 </html>

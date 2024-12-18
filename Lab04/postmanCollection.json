@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "3edef6d1-8dad-4d96-9b9d-f47e0dec09ff",
+		"name": "Lab04",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "40363936"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"jan.kowalski@example.com\",\n  \"password\": \"MojeSekretneHaslo123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:3000/api/register"
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:3000/api/login"
+			},
+			"response": []
+		},
+		{
+			"name": "addBook",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoiam9obl9zdG9uZUBnbWFpbC5jb20iLCJpYXQiOjE3MzM5NDAyMjIsImV4cCI6MTczMzk0MzgyMn0.LL1aRBhFw7wwZm6HG21NonIuL23Obw29mNRNUH9cLtY"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Władca Pierścieni: Drużyna Pierścienia\",\n  \"author\": \"J.R.R. Tolkien\",\n  \"year\": 1954\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:3000/api/books"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllBooks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:3000/api/books/1"
+			},
+			"response": []
+		},
+		{
+			"name": "getBook",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:3000/api/books/1"
+			},
+			"response": []
+		},
+		{
+			"name": "deleteBook",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoiamFuLmtvd2Fsc2tpQGV4YW1wbGUuY29tIiwiaWF0IjoxNzMzOTM0NzE0LCJleHAiOjE3MzM5MzgzMTR9.7aBpAa9Thjjo-gyA0KzhuhVYLuNG1BUb4Wc3dUgbXJw"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": "http://127.0.0.1:3000/api/books/1"
+			},
+			"response": []
+		},
+		{
+			"name": "addUserOrder",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoiamFuLmtvd2Fsc2tpQGV4YW1wbGUuY29tIiwiaWF0IjoxNzMzOTM1NTkxLCJleHAiOjE3MzM5MzkxOTF9.c67HK7zSz6ocvIyN8vAR2UwzTiCzieT5L5WTfuZ4Xtw"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"bookId\": 2,\n  \"quantity\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:3000/api/orders"
+			},
+			"response": []
+		},
+		{
+			"name": "getUserOrders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:3000/api/orders/1"
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUserOrder",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoiamFuLmtvd2Fsc2tpQGV4YW1wbGUuY29tIiwiaWF0IjoxNzMzOTM1NTkxLCJleHAiOjE3MzM5MzkxOTF9.c67HK7zSz6ocvIyN8vAR2UwzTiCzieT5L5WTfuZ4Xtw"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": "http://127.0.0.1:3000/api/orders/1"
+			},
+			"response": []
+		},
+		{
+			"name": "patchOrder",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoiamFuLmtvd2Fsc2tpQGV4YW1wbGUuY29tIiwiaWF0IjoxNzMzOTM1NTkxLCJleHAiOjE3MzM5MzkxOTF9.c67HK7zSz6ocvIyN8vAR2UwzTiCzieT5L5WTfuZ4Xtw"
+					}
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"quantity\": 5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:3000/api/orders/1"
+			},
+			"response": []
+		}
+	]
+}
